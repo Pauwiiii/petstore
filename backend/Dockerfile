@@ -3,8 +3,8 @@ FROM maven:3.8.5-openjdk-17-slim AS build
 WORKDIR /app
 
 # Copy the pom.xml and source code
-COPY pom.xml .
-COPY src ./src
+COPY backend/pom.xml .
+COPY backend/src ./src
 
 # Package the application (skipping tests for faster build times)
 RUN mvn clean package -DskipTests

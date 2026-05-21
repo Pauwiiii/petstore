@@ -3,7 +3,7 @@ services:
     name: petstore-api
     plan: free
     runtime: docker
-    dockerContext: ./backend
+    dockerContext: .
     dockerfilePath: ./backend/Dockerfile
     envVars:
       - key: SPRING_PROFILES_ACTIVE
@@ -39,9 +39,8 @@ services:
   - type: web
     name: petstore-web
     runtime: static
-    rootDir: frontend
-    buildCommand: npm install && npm run build
-    staticPublishPath: dist
+    buildCommand: cd frontend && npm install && npm run build
+    staticPublishPath: frontend/dist
     routes:
       - type: rewrite
         source: /*
