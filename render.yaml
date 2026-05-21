@@ -2,7 +2,6 @@ services:
   - type: web
     name: petstore-backend
     env: java
-    runtime: java17
     buildCommand: cd backend && ./mvnw clean package -DskipTests
     startCommand: cd backend && java -jar target/petstore-backend-0.0.1-SNAPSHOT.jar
     envVars:
