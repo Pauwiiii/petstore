@@ -2,7 +2,7 @@ services:
   - type: web
     name: petstore-api
     plan: free
-    env: docker
+    runtime: docker
     dockerContext: ./backend
     dockerfilePath: ./backend/Dockerfile
     envVars:
@@ -38,9 +38,9 @@ services:
 
   - type: web
     name: petstore-web
-    env: static
+    runtime: static
     rootDir: frontend
-    buildCommand: npm ci && npm run build
+    buildCommand: npm install && npm run build
     staticPublishPath: dist
     routes:
       - type: rewrite
