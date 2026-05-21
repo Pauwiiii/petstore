@@ -10,7 +10,7 @@ COPY backend/src ./src
 RUN mvn clean package -DskipTests
 
 # --- Stage 2: Run the application ---
-FROM openjdk:17-jdk-slim
+FROM eclipse-temurin:17-jre-jammy
 WORKDIR /app
 
 # Copy the built jar from the build stage
